@@ -1,8 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Link from "next/link";
-import Head from "next/head";
-// import withAnalytics from "../src/hocs/withAnalytics";
+import Head from 'next/head';
 
 const User = ({ users }) => (
   <div>
@@ -11,7 +10,13 @@ const User = ({ users }) => (
     </Head>
     <ul>
       {users.map(user => (
-        <li key={user.id}>{user.login}</li>
+        <li key={user.id}>
+          <Link href={`/users/${user.login}`}>
+            <a>
+              {user.login}
+            </a>
+          </Link>
+        </li>
       ))}
     </ul>
     <Link href="/">
